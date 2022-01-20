@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
+
+<style>
+
+<!--    .list-group {-->
+<!--        list-style: decimal inside;-->
+<!--    }-->
+
+    .list-group-item {
+        display: list-item;
+    }
+
+</style>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page</h1>
+        <ol class="list-group list-group-numbered" id="demo1">
+          <li class="list-group-item">Lewis Hamilton</li>
+          <li class="list-group-item">George Russell</li>
+          <li class="list-group-item">Max Verstappen</li>
+          <li class="list-group-item">Sergio Perez</li>
+          <li class="list-group-item">Daniel Ricciardo</li>
+          <li class="list-group-item">Lando Norris</li>
+          <li class="list-group-item">Charles Leclerc</li>
+          <li class="list-group-item">Carlos Sainz</li>
+          <li class="list-group-item">Fernando Alonso</li>
+          <li class="list-group-item">Esteban Ocon</li>
+          <li class="list-group-item">Pierre Gasly</li>
+          <li class="list-group-item">Yuki Tsunoda</li>
+          <li class="list-group-item">Lance Stroll</li>
+          <li class="list-group-item">Sebastian Vettel</li>
+          <li class="list-group-item">Valtteri Bottas</li>
+          <li class="list-group-item">Guanyu Zhou</li>
+          <li class="list-group-item">Alex Albon</li>
+          <li class="list-group-item">Nicholas Latifi</li>
+          <li class="list-group-item">Mick Schumacher</li>
+          <li class="list-group-item">Nikita Mazepin</li>
+        </ol>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="submit()">Submit</button>
+    </div>
+</body>
+
+
+<script>
+
+var list = document.getElementById('demo1')
+
+Sortable.create(list, {
+    animation: 100,
+    group: 'list-1',
+    draggable: '.list-group-item',
+    handle: '.list-group-item',
+    sort: true,
+    filter: '.sortable-disabled',
+    chosenClass: 'active'
+});
+
+function submit() {
+    var out = [];
+    for (var i = 0; i < list.children.length; i++) {
+        var child = list.children[i];
+        // console.log(child.textContent);
+        out.push(child.textContent);
+    }
+    console.log(out);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        console.log(this.responseText);
+    };
+    xhr.open('GET', 'https://pastebin.com/raw/HVZ4U823', true);
+    xhr.send();
+
+}
+
+</script>
+
+</html>
