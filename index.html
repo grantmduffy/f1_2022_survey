@@ -23,11 +23,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Driver Ranking</title>
+    <title>Formula Fun</title>
 </head>
 <body>
     <div class="container">
-        <h1>Driver Ranking</h1>
+        <h1>2022 Formula Fun Survey</h1>
         <div class="panel panel-default">
             <label for="name">Your Name</label>
             <input type="text" class="form-control" id="name">
@@ -35,6 +35,8 @@
             <input type="password" class="form-control" id="token">
         </div>
         <div class="panel panel-default">
+            <h2>Who's the hottest driver?</h2>
+            <p>Forgot what they look like? Here's some <a href="./driver_profiles.html" target="_blank" rel="noreferrer noopener">help</a>.</p>
             <ol class="list-group list-group-numbered" id="demo1">
               <li class="list-group-item">Lewis Hamilton</li>
               <li class="list-group-item">George Russell</li>
@@ -58,6 +60,46 @@
               <li class="list-group-item">Nikita Mazepin</li>
             </ol>
         </div>
+        <form class="panel panel-default">
+            <h2>Who is going to win the drivers championship?</h2>
+            <select class="form-control" id="driver_champ">
+                <option selected>Lewis Hamilton</option>
+                <option value="1">George Russel</option>
+                <option value="2">Max Verstappen</option>
+                <option value="3">Sergio Perez</option>
+                <option value="4">Daniel Ricciardo</option>
+                <option value="5">Lando Norris</option>
+                <option value="6">Charles Leclerc</option>
+                <option value="7">Carlos Sainz</option>
+                <option value="8">Fernando Alonso</option>
+                <option value="9">Esteban Ocon</option>
+                <option value="10">Pierre Gasly</option>
+                <option value="11">Yuki Tsunoda</option>
+                <option value="12">Lance Stroll</option>
+                <option value="13">Sebastian Vettel</option>
+                <option value="14">Valtteri Bottas</option>
+                <option value="15">Guanyu Zhou</option>
+                <option value="16">Alex Albon</option>
+                <option value="17">Nicholas Latifi</option>
+                <option value="18">Mick Schumacher</option>
+                <option value="19">Nikita Mazepin</option>
+            </select>
+            <h2>Who is going to win the constructors championship?</h2>
+            <select class="form-control" id="constructor_champ">
+                <option selected>Mercedes</option>
+                <option value="1">Red Bull</option>
+                <option value="2">Ferrari</option>
+                <option value="3">Mclaren</option>
+                <option value="4">Alpine</option>
+                <option value="5">AlphaTauri</option>
+                <option value="6">Aston Martin</option>
+                <option value="7">Williams</option>
+                <option value="8">Alfa Romeo</option>
+                <option value="9">HAAS</option>
+            </select>
+            <h2>Any other predictions??</h2>
+            <textarea class="form-control" rows="32" style="width: 100%">(Enter prediction here)</textarea>
+        </form>
         <button type="button" class="btn btn-primary btn-lg btn-block" onclick="submit()">Submit</button>
     </div>
 </body>
@@ -68,6 +110,8 @@
 var list = document.getElementById('demo1');
 var token_el = document.getElementById('token');
 var name_el = document.getElementById('name');
+var driver_champ_el = document.getElementById('driver_champ');
+var constructor_champ_el = document.getElementById('constructor_champ');
 var data = {};
 
 Sortable.create(list, {
@@ -81,14 +125,18 @@ Sortable.create(list, {
 });
 
 function submit() {
-    var out = [];
+    var out = {};
+    var driver_ranking = [];
     for (var i = 0; i < list.children.length; i++) {
         var child = list.children[i];
-        out.push(child.textContent);
+        driver_ranking.push(child.textContent);
     }
     var name = name_el.value.trim();
     var filename = name.toLowerCase().replace(' ', '_') + '.json';
     var token = token_el.value;
+    out['diver_ranking'] = driver_ranking;
+    out['driver_champ'] = driver_champ_el.selectedOptions[0].text;
+    out['constructor_champ'] = constructor_champ_el.selectedOptions[0].text;
     var content = btoa(JSON.stringify(out));
     data = {
         'message': 'Survey response for ' + name,
