@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
+
+<style>
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+th, td {
+    font-size: 30px;
+}
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Driver Profiles</title>
+</head>
+<body onload="addProfiles()">
+
+<div class="container" id="main_container">
+    <h1>2022 F1 Driver Profiles</h1>
+
+</div>
+
+</body>
+
+<script>
+
+var carousel = null;
+var car_item = null;
+
+async function addProfiles(){
+    var main_container = document.getElementById("main_container");
+    var r = await fetch('./driver_stats.json');
+    var driver_stats = await r.json();
+
+    for (var driver in driver_stats){
+        stats = driver_stats[driver];
+
+        // Generate carousel
+        carousel = document.createElement('div');
+        carousel.id = driver.toLowerCase().replace(' ', '_') + '_carousel';
+        carousel.classList.add('carousel');
+        carousel.classList.add('slide');
+        carousel.setAttribute('data-interval', 'false');
+        carousel.align = 'center';
+
+        // Name Card
+        var name_card = document.createElement('H2');
+        name_card.textContent = driver;
+        carousel.appendChild(name_card);
+
+        // Indicators
+        var indicators = document.createElement('ol');
+        indicators.classList.add('carousel-indicators');
+        for (var i = 0; i <= stats['images'].length; i++){
+            var html_str = '<li data-target="#' + carousel.id + '" data-slide-to="' + i + '"';
+            if (i == 0){
+                html_str += ' class="active"';
+            }
+            html_str += '></li>';
+            indicators.innerHTML += html_str;
+        }
+        carousel.appendChild(indicators);
+
+        // Inner carousel
+        var inner_carousel = document.createElement('div');
+        inner_carousel.id = driver.toLowerCase().replace(' ', '_') + '_inner_carousel';
+        inner_carousel.style = 'height: 600px';
+        inner_carousel.classList.add('carousel-inner');
+        for (var i = 0; i < stats['images'].length; i++){
+            car_item = document.createElement('div');
+            car_item.classList.add('item');
+            if (i == 0){
+                car_item.classList.add('active');
+            }
+            var img_html = '<img class="img-responsive h-100" style="height: 600px" src="' + stats['images'][i] + '">'
+            car_item.innerHTML = img_html;
+            console.log(img_html);
+            console.log(car_item);
+            inner_carousel.appendChild(car_item);
+        }
+
+        // Generate table
+        car_item = document.createElement('div');
+        car_item.classList.add('item');
+        var table = document.createElement('table');
+        table.style = 'width: 50%';
+        table.className = "table";
+        var html = '<tr><th>Team</th><td>' + stats['team'] + '</td></tr>'
+                  +'<tr><th>Height</th><td>' + stats['height'] + '</td></tr>'
+                  +'<tr><th>Age</th><td>' + stats['age'] + '</td></tr>'
+                  +'<tr><th>Net Worth</th><td>' + stats['net_worth'] + '</td></tr>'
+                  +'<tr><th>Nationality</th><td>' + stats['nationality'] + '</td></tr>';
+        table.innerHTML = html
+        car_item.appendChild(table);
+        inner_carousel.appendChild(car_item);
+        carousel.appendChild(inner_carousel);
+
+        // Add controls
+        var controls = document.createElement('a');
+        controls.href = '#' + carousel.id;
+        controls.classList.add('left');
+        controls.classList.add('carousel-control');
+        controls.setAttribute('data-slide', 'prev');
+        controls.innerHTML = '<span class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span>';
+        carousel.appendChild(controls);
+        controls = document.createElement('a');
+        controls.href = '#' + carousel.id;
+        controls.classList.add('right');
+        controls.classList.add('carousel-control');
+        controls.setAttribute('data-slide', 'next');
+        controls.innerHTML = '<span class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Previous</span>';
+        carousel.appendChild(controls);
+
+        main_container.appendChild(carousel);
+    }
+
+}
+
+</script>
+
+</html>
