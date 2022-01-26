@@ -51,7 +51,7 @@ var token_el = document.getElementById('token');
 
 async function addProfiles(){
     var main_container = document.getElementById("main_container");
-    var r = await fetch('./driver_stats.json');
+    var r = await fetch('https://raw.githubusercontent.com/grantmduffy/f1_2022_survey/main/driver_stats.json');
     driver_stats = await r.json();
 
     for (var driver in driver_stats){
