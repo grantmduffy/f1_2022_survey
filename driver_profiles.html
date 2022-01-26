@@ -34,7 +34,9 @@ th, td {
 
 <div class="container" id="main_container">
     <h1>2022 F1 Driver Profiles</h1>
-    <p>Feel like there's hotter pics of your fav driver? Edit the contents of this page <a href="./profile_editor.html" target="_blank" rel="noreferrer noopener">here</a>.</p>
+    <p>Password only needed to add photos.</p>
+    <label for="token">Password</label>
+    <input type="password" id="token" class="form-control">
 
 </div>
 
@@ -44,11 +46,13 @@ th, td {
 
 var carousel = null;
 var car_item = null;
+var driver_stats = null;
+var token_el = document.getElementById('token');
 
 async function addProfiles(){
     var main_container = document.getElementById("main_container");
     var r = await fetch('./driver_stats.json');
-    var driver_stats = await r.json();
+    driver_stats = await r.json();
 
     for (var driver in driver_stats){
         stats = driver_stats[driver];
@@ -110,6 +114,15 @@ async function addProfiles(){
                   +'<tr><th>Nationality</th><td>' + stats['nationality'] + '</td></tr>';
         table.innerHTML = html
         car_item.appendChild(table);
+
+        var photo_input = document.createElement('form');
+        photo_input.style = 'width: 50%';
+        photo_input.innerHTML = '<p>Got a better photo? Add it via url here.</p>'
+                              + '<input type="url" class="form-control" id="'
+                              + driver.toLowerCase().replace(' ', '_') + '_photo_url">'
+                              + '<button type="button" class="btn btn-primary btn-lg btn-block" '
+                              + 'onclick="addPhoto(\'' + driver + '\')">Add Photo</button>';
+        car_item.appendChild(photo_input);
         inner_carousel.appendChild(car_item);
         carousel.appendChild(inner_carousel);
 
@@ -131,7 +144,54 @@ async function addProfiles(){
 
         main_container.appendChild(carousel);
     }
+}
 
+function addPhoto(name){
+    console.log('Adding photo for ' + name);
+    url = document.getElementById(name.toLowerCase().replace(' ', '_') + '_photo_url').value.trim();
+    if (driver_stats[name]['images'].includes(url)){
+        alert('Photo already being used');
+        return;
+    }
+    driver_stats[name]['images'].push(url);
+    console.log(driver_stats);
+
+    submitJSON();
+}
+
+function submitJSON(){
+
+    var content = btoa(JSON.stringify(driver_stats, null, 4));
+    data = {
+        'message': 'Update driver profiles',
+        'content': content,
+    }
+
+    var token = token_el.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.github.com/repos/grantmduffy/f1_2022_survey/contents/driver_stats.json', false);
+    xhr.onreadystatechange = function() {
+        console.log(this.status);
+        console.log(this.responseText);
+        if (this.status == 200){
+            data['sha'] = JSON.parse(this.responseText)['sha'];
+        }
+    };
+    xhr.setRequestHeader('Authorization', 'token ' + token);
+    xhr.send();
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('PUT', 'https://api.github.com/repos/grantmduffy/f1_2022_survey/contents/driver_stats.json', true);
+    xhr.onreadystatechange = function() {
+        console.log(this.status);
+        console.log(this.responseText);
+        if (this.readyState == 4 && this.status == 200){
+            alert('Photo Added');
+            location.reload();
+        }
+    };
+    xhr.setRequestHeader('Authorization', 'token ' + token);
+    xhr.send(JSON.stringify(data));
 }
 
 </script>
