@@ -1,1 +1,250 @@
-{"Lewis Hamilton":{"team":"Mercedes","height":"5'8\"","age":37,"net_worth":"$300M","nationality":"British","images":["https://cdn-8.motorsport.com/images/mgl/6xEDbp10/s8/lewis-hamilton-mercedes-1.jpg","https://i.dailymail.co.uk/1s/2020/06/19/09/29810174-0-image-a-52_1592554465206.jpg","https://i.dailymail.co.uk/1s/2021/10/08/13/48924315-0-image-a-37_1633694516664.jpg"]},"George Russell":{"team":"Mercedes","height":"6'1\"","age":22,"net_worth":"$1M","nationality":"British","images":["https://www.bosshunting.com.au/wp-content/uploads/2021/09/George-Russell-Mercedes-2022.jpg","https://celebritynews.pk/wp-content/uploads/2021/05/george-russell-shirtless.jpg","https://preview.redd.it/vvr3w79ay2581.jpg?width=640&crop=smart&auto=webp&s=1a4414ac1643967de72cc5eeeb61daaa1b801ea6"]},"Max Verstappen":{"team":"Red Bull","height":"5'11\"","age":24,"net_worth":"$37M","nationality":"Dutch","images":["https://www.formula1.com/content/fom-website/en/drivers/max-verstappen/_jcr_content/image16x9.img.1536.high.jpg","https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2021/9/16/nq3uvfvmy1ebqpo4oex6/f1-star-max-verstappen-wears-alphatauri"]},"Sergio Perez":{"team":"Red Bull","height":"5'11\"","age":24,"net_worth":"$37M","nationality":"Dutch","images":["https://www.formula1.com/content/fom-website/en/drivers/max-verstappen/_jcr_content/image16x9.img.1536.high.jpg","https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2021/9/16/nq3uvfvmy1ebqpo4oex6/f1-star-max-verstappen-wears-alphatauri"]}}
+{
+  "Lewis Hamilton": {
+    "team": "Mercedes",
+    "height": "5'8\"",
+    "age": 37,
+    "net_worth": "$300M",
+    "nationality": "British",
+    "images": [
+      "https://cdn-8.motorsport.com/images/mgl/6xEDbp10/s8/lewis-hamilton-mercedes-1.jpg",
+      "https://i.dailymail.co.uk/1s/2020/06/19/09/29810174-0-image-a-52_1592554465206.jpg",
+      "https://i.dailymail.co.uk/1s/2021/10/08/13/48924315-0-image-a-37_1633694516664.jpg"
+    ]
+  },
+  "George Russell": {
+    "team": "Mercedes",
+    "height": "6'1\"",
+    "age": 22,
+    "net_worth": "$1M",
+    "nationality": "British",
+    "images": [
+      "https://www.bosshunting.com.au/wp-content/uploads/2021/09/George-Russell-Mercedes-2022.jpg",
+      "https://celebritynews.pk/wp-content/uploads/2021/05/george-russell-shirtless.jpg",
+      "https://preview.redd.it/vvr3w79ay2581.jpg?width=640&crop=smart&auto=webp&s=1a4414ac1643967de72cc5eeeb61daaa1b801ea6"
+    ]
+  },
+  "Max Verstappen": {
+    "team": "Red Bull",
+    "height": "5'11\"",
+    "age": 24,
+    "net_worth": "$37M",
+    "nationality": "Dutch",
+    "images": [
+      "https://www.formula1.com/content/fom-website/en/drivers/max-verstappen/_jcr_content/image16x9.img.1536.high.jpg",
+      "https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2021/9/16/nq3uvfvmy1ebqpo4oex6/f1-star-max-verstappen-wears-alphatauri",
+      "https://cdn-wp.thesportsrush.com/2022/01/36e8aa87-personal-vlog-youtube-thumbnail-70.jpg"
+    ]
+  },
+  "Sergio Perez": {
+    "team": "Red Bull",
+    "height": "5'8\"",
+    "age": 32,
+    "net_worth": "$30M",
+    "nationality": "Mexican",
+    "images": [
+      "https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2021/07/04083517/Sergio-Perez-Red-Bull-PA-1200x630.jpg",
+      "https://www.grandprix247.com/wp-content/uploads/2020/12/PerezSAKpodium.jpg",
+      "https://preview.redd.it/w51idjv2yd181.jpg?width=640&crop=smart&auto=webp&s=cb3b6449fcf7a9dda543585c8e10750be1f3578f"
+    ]
+  },
+  "Daniel Ricciardo": {
+    "team": "Mclaren",
+    "height": "5'11\"",
+    "age": 32,
+    "net_worth": "$50M",
+    "nationality": "Australian",
+    "images": [
+      "https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2021/02/16063437/Daniel-Ricciardo-McLaren1.jpg",
+      "https://www.formula1.com/content/dam/fom-website/manual/Misc/2020/2020races/Bahrain1/RIC/RICCIARDO_D_277_.jpg",
+      "https://64.media.tumblr.com/260e6a885e4c337cfde6e177f0cf91c0/9c8d72e8a92710d0-69/s400x600/60a25e7dd386ab12b548990a8204a782324d2183.gifv",
+      "https://www.dmarge.com/wp-content/uploads/2021/01/ricky-mclaren-feature.jpg"
+    ]
+  },
+  "Lando Norris": {
+    "team": "Mclaren",
+    "height": "5'7\"",
+    "age": 22,
+    "net_worth": "$3M",
+    "nationality": "British",
+    "images": [
+      "https://www.dmarge.com/wp-content/uploads/2021/01/ricky-mclaren-feature.jpg",
+      "https://cdn.oneesports.gg/cdn-data/2021/12/F1_LandoNorris_Bluesuit.jpg",
+      "https://pbs.twimg.com/media/E8r8EkVWEAQfMFt.jpg",
+      "https://scontent-sea1-1.xx.fbcdn.net/v/t1.6435-9/69809805_10156860367203759_1883671492365910016_n.png?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeFOKSCriqjM7jC71q6h2wSY5DuQYtsztdvkO5Bi2zO1208PqB89M7HAIKjltORUp-E&_nc_ohc=-kvl2oOULycAX-taFqk&_nc_ht=scontent-sea1-1.xx&oh=00_AT-zo8E-phf7Yo4W7UkCxdMqYpTcjFGPVdCKGNP7vAZzcA&oe=62145427",
+      "https://preview.redd.it/57wf35yfc1351.jpg?width=640&crop=smart&auto=webp&s=3a9ae1dd0d68f1cf3c733571f0c88d81977931bf"
+    ]
+  },
+  "Charles Leclerc": {
+    "team": "Ferrari",
+    "height": "5'11\"",
+    "age": 24,
+    "net_worth": "$2M",
+    "nationality": "Monegasque",
+    "images": [
+      "https://www.formula1.com/content/fom-website/en/drivers/charles-leclerc/_jcr_content/image.img.640.medium.jpg/1641812697450.jpg",
+      "https://cdn-1.motorsport.com/images/amp/2d1JBrDY/s6/race-winner-charles-leclerc-fe.jpg",
+      "https://pbs.twimg.com/media/E82jPmjXoAELmwN.jpg",
+      "https://www.clkarting.com/wp-content/uploads/2019/12/F1-GP-Austria-2019-01004_lr-e1579085047232-749x1024.jpg",
+      "https://wwd.com/wp-content/uploads/2020/05/ga_mtm_charles-leclerc_credit-john-balsom_03.jpg"
+    ]
+  },
+  "Carlos Sainz": {
+    "team": "Ferrari",
+    "height": "5'10\"",
+    "age": 27,
+    "net_worth": "$8M",
+    "nationality": "Spanish",
+    "images": [
+      "https://www.formula1.com/content/fom-website/en/drivers/carlos-sainz/_jcr_content/image16x9.img.1536.high.jpg",
+      "https://www.wrc.com/images/redaktion/Season-2020-NEWS/WRC/4_April/210420_RBMH_SainzSrJr_001_d8403_f_1400x788.jpg",
+      "https://www.hola.com/images/026c-13096658a44f-1d4b8689a0e0-1000/horizontal-1200/carlos-sainz-jr.jpg0",
+      "https://i.redd.it/2a4aktyrn2j31.png"
+
+    ]
+  },
+  "Fernando Alonso": {
+    "team": "Alpine",
+    "height": "5'7\"",
+    "age": 40,
+    "net_worth": "$240",
+    "nationality": "Spanish",
+    "images": [
+      "https://www.formula1.com/content/fom-website/en/drivers/fernando-alonso/_jcr_content/image16x9.img.1024.medium.jpg",
+      "https://img.redbull.com/images/q_auto,f_auto/redbullcom/2015/09/24/1331749826818_2/f1-fernando-alonso-renault-title-2005",
+      "https://famewatcher.com/wp-content/uploads/2017/03/fernando-alonso-shirtless4.jpg",
+      "https://www.gtplanet.net/wp-content/uploads/2017/07/459_Alonso-Brasil-15.jpg"
+    ]
+  },
+  "Esteban Ocon": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Pierre Gasly": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Yuki Tsunoda": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Lance Stroll": {
+    "team": "",
+    "height": "'\"",
+    "age": ,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Sebastian Vettel": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Valtteri Bottas": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Guanyu Zhou": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Alex Albon": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Nicholas Latifi": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Mick Schumacher": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "Nikita Mazepin": {
+    "team": "",
+    "height": "'\"",
+    "age": 0,
+    "net_worth": "$",
+    "nationality": "",
+    "images": [
+      "",
+      "",
+      ""
+    ]
+  }
+}

@@ -98,7 +98,7 @@
                 <option value="9">HAAS</option>
             </select>
             <h2>Any other predictions??</h2>
-            <textarea class="form-control" rows="32" style="width: 100%">(Enter prediction here)</textarea>
+            <textarea class="form-control" rows="32" style="width: 100%" id="additional_preds">(Enter prediction here)</textarea>
         </form>
         <button type="button" class="btn btn-primary btn-lg btn-block" onclick="submit()">Submit</button>
     </div>
@@ -112,6 +112,7 @@ var token_el = document.getElementById('token');
 var name_el = document.getElementById('name');
 var driver_champ_el = document.getElementById('driver_champ');
 var constructor_champ_el = document.getElementById('constructor_champ');
+var preds_el = document.getElementById('additional_preds');
 var data = {};
 
 Sortable.create(list, {
@@ -137,6 +138,7 @@ function submit() {
     out['diver_ranking'] = driver_ranking;
     out['driver_champ'] = driver_champ_el.selectedOptions[0].text;
     out['constructor_champ'] = constructor_champ_el.selectedOptions[0].text;
+    out['additional_preds'] = preds_el.value;
     var content = btoa(JSON.stringify(out));
     data = {
         'message': 'Survey response for ' + name,

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Driver Profile Editor</title>
+</head>
+<body onload="fillJSON()">
+
+<div class="container">
+    <form>
+        <h1>Driver Profile Editor</h1>
+        <textarea class="form-control" id="json_input" rows="32"></textarea>
+        <input type="password" class="form-control" id="token">
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="submitJSON()">Submit</button>
+    </form>
+</div>
+
+</body>
+
+<script>
+
+var text_input_el = document.getElementById('json_input');
+var token_el = document.getElementById('token');
+
+async function fillJSON(){
+    var r = await fetch('./driver_stats.json');
+    var driver_stats = await r.json();
+    text_input_el.value = JSON.stringify(driver_stats, null, 4);
+}
+
+function submitJSON(){
+    var new_json = null;
+    try{
+        var new_json = JSON.parse(text_input_el.value);
+        console.log(new_json);
+    } catch (error) {
+        alert(error);
+        throw error;
+    }
+
+    var content = btoa(JSON.stringify(new_json));
+    data = {
+        'message': 'Update driver profiles',
+        'content': content,
+    }
+
+    var token = token_el.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.github.com/repos/grantmduffy/f1_2022_survey/contents/driver_stats.json', false);
+    xhr.onreadystatechange = function() {
+        console.log(this.status);
+        console.log(this.responseText);
+        if (this.status == 200){
+            data['sha'] = JSON.parse(this.responseText)['sha'];
+        }
+    };
+    xhr.setRequestHeader('Authorization', 'token ' + token);
+    xhr.send();
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('PUT', 'https://api.github.com/repos/grantmduffy/f1_2022_survey/contents/driver_stats.json', true);
+    xhr.onreadystatechange = function() {
+        console.log(this.status);
+        console.log(this.responseText);
+        if (this.readyState == 4 && this.status == 200){
+            alert('Driver profiles updated');
+        }
+    };
+    xhr.setRequestHeader('Authorization', 'token ' + token);
+    xhr.send(JSON.stringify(data));
+}
+
+</script>
+
+</html>
