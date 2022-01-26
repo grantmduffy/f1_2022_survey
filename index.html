@@ -63,7 +63,8 @@
         <form class="panel panel-default">
             <h2>Who is going to win the drivers championship?</h2>
             <select class="form-control" id="driver_champ">
-                <option selected>Lewis Hamilton</option>
+                <option selected>pick one</option>
+                <option value="0">Lewis Hamilton</option>
                 <option value="1">George Russel</option>
                 <option value="2">Max Verstappen</option>
                 <option value="3">Sergio Perez</option>
@@ -86,7 +87,8 @@
             </select>
             <h2>Who is going to win the constructors championship?</h2>
             <select class="form-control" id="constructor_champ">
-                <option selected>Mercedes</option>
+                <option selected>pick one</option>
+                <option value="0">Mercedes</option>
                 <option value="1">Red Bull</option>
                 <option value="2">Ferrari</option>
                 <option value="3">Mclaren</option>
@@ -98,7 +100,7 @@
                 <option value="9">HAAS</option>
             </select>
             <h2>Any other predictions??</h2>
-            <textarea class="form-control" rows="32" style="width: 100%" id="additional_preds">(Enter prediction here)</textarea>
+            <textarea class="form-control" rows="32" style="width: 100%" id="additional_preds" placeholder="(Enter prediction here)"></textarea>
         </form>
         <button type="button" class="btn btn-primary btn-lg btn-block" onclick="submit()">Submit</button>
     </div>
