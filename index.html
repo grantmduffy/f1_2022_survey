@@ -178,7 +178,7 @@ function submit() {
     xhr.onreadystatechange = function() {
         console.log(this.status);
         console.log(this.responseText);
-        if (this.readyState == 4 && this.status == 200){
+        if (this.readyState == 4 && (this.status == 200 || this.status == 201)){
             alert('Your response was successfully recorded');
         }
     };
